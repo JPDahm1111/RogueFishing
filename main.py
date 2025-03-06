@@ -10,11 +10,16 @@
 
 #this is the primary python file for the roguefishing project
 
+
 #Imports-----------
 import tcod
 
 #import from other files
-from actions import EscapeAction, MovementAction
+from engine import Engine
+#import entity file
+from entity import Entity
+#import the game map file
+from game_map import GameMap
 from input_handlers import EventHandler
 
 #Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications---------
@@ -24,9 +29,9 @@ def main() -> None:
     screen_width = 80
     screen_height = 50
 
-    #spawn the player in the middle of the screen
-    player_x = int(screen_width // 2)
-    player_y = int(screen_height // 2)
+    #basic map tomfoolery, def not final!
+    map_width = 80
+    map_height = 45
     
     #load tiles from tileset#
     tileset = tcod.tileset.load_tilesheet(
@@ -34,6 +39,16 @@ def main() -> None:
     )
     #process/recieve events
     event_handler = EventHandler()
+
+    #spawn entity/player 
+    player = Entity(int(screen_width / 2), int(screen_height / 2), "@", (255, 255, 255))
+    npc = Entity(int(screen_width / 2 - 5), int(screen_height / 2), "@", (255, 255, 0))
+    entities = {npc, player}
+
+    game_map = GameMap(map_width, map_height)
+
+    engine = Engine(entities=entities, event_handler=event_handler, game_map=game_map, player=player)
+
     
     #set custom tileset font and setup some windo info/create the screen
     with tcod.context.new_terminal(
@@ -48,28 +63,14 @@ def main() -> None:
         #the main game loop
         while True:
             #modified from initial, this essentially lets the player actually spawn in the middle of the screen
-            root_console.print(x=player_x, y=player_y, string="@")
+            engine.render(console=root_console, context=context)
 
-            context.present(root_console)
 
-            #This command makes it so that the player "character" doesnt trail
-            #it clears previously drawn @s!
-            root_console.clear()
-            
-            #"for event" is a general event handler!
-            for event in tcod.event.wait():
+            events = tcod.event.wait()
 
-                action = event_handler.dispatch(event)
-
-                if action is None:
-                    continue
-
-                if isinstance(action, MovementAction):
-                    player_x += action.dx
-                    player_y += action.dy
-
-                elif isinstance(action, EscapeAction):
-                    raise SystemExit()
+            #Initially, there was a command that makde it so that the player "character" didnt trail
+            #now it clears previously drawn @s via the engine file
+            engine.handle_events(events)
 
   
 

@@ -2,7 +2,7 @@
 #RogueFishing
 #Input Handlers File
 
-#This file
+#This file is responsible for managing inputs
 
 #credits:
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
