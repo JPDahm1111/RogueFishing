@@ -36,4 +36,8 @@ v0.1, 030625a :
 -changed changelog from rtf to txt
 -updated changeling build convention info
 
+v0.1, 030725a :
+-Modified "dejavu" font elements, characters changed:
+	-@, changed to a character
+	-$, changed to fish
 
