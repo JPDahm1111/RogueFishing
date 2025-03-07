@@ -1,0 +1,39 @@
+RogueFishing
+Changelog by JPD
+—————————————————————————————————————————————
+Build naming convention:
+(Month)(Day)(Year)(Build designation)
+Ex: 010203a
+“i” is representative of an initial build of a NEW version.
+After “i” comes a-h then j-z
+After z comes aa, bb, cc etc. (including ii) 
+
+-Versions, starting from v0.1, denote major change. 
+-Multiple builds released in one day will get more letters, ex: 010203a, 010203b.
+-The date is in relation to when the build was first started!
+—————————————————————————————————————————————
+Changelog:
+
+v0.1, 030525i :
+Laid down the basic foundations for creating the game:
+-created the player character, represented with @
+-spawned the player
+-made the player controllable
+-made multiple specialized files to perform tasks such as drawing the player character to controlling it
+
+v0.1, 030525a :
+Major overhaul to EVERYTHING!!!
+-created new files, entity.py and engine.py responsible for setting up entities and managing them as well as creating maps respectively. 
+-modified main.py to be more lightweight and delegate tasks
+-created tile_types.py, this file manages tiles and tile properties
+-created game_map.py which manages the game map (doesn’t draw it, that’s engine’s job)
+-modified main.py to support the newly created engine and map
+	-main.py’s modifications allow for a map to be created with certain parameters, like length/width!
+-modified the newly created engine to support the gamemap file
+- engine handles the map like this: handle_events is called to determine details about a tile and render draws it
+
+v0.1, 030625a :
+-changed changelog from rtf to txt
+-updated changeling build convention info
+
+
