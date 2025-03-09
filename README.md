@@ -52,13 +52,13 @@ Major overhaul to EVERYTHING!!!
 	- @, changed to a character
 	- $, changed to fish
 
-**<ins>Latest Version</ins>**
+**<ins>Latest Version:</ins>**
 **<ins>v0.11, 030825i -Procedural Generation</ins> :**
-**- Functional procedural map generation is implemented!** 
-**- addeded procgen.py to handle procedural generation**
-**- modified main.py to accomidate procgen**
-**- modified game_map.py to accomidate procgen**
-**- The game will now procedurally generate a map when main.py is run. The player will be intellignetly placed on a valid tile.**
+- Functional procedural map generation is implemented!
+- addeded procgen.py to handle procedural generation
+- modified main.py to accomidate procgen
+- modified game_map.py to accomidate procgen
+- The game will now procedurally generate a map when main.py is run. The player will be intellignetly placed on a valid tile.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
