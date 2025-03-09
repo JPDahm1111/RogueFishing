@@ -43,6 +43,21 @@ Major overhaul to EVERYTHING!!!
 	-main.py’s modifications allow for a map to be created with certain parameters, like length/width!
 -modified the newly created engine to support the gamemap file
 - engine handles the map like this: handle_events is called to determine details about a tile and render draws it
+v0.1, 030625a :
+-changed changelog from rtf to txt
+-updated changeling build convention info
+
+v0.1, 030725a :
+-Modified "dejavu" font elements, characters changed:
+	-@, changed to a character
+	-$, changed to fish
+
+v0.11, 030825i :
+-Functional procedural map generation is implemented! 
+-addeded procgen.py to handle procedural generation
+-modified main.py to accomidate procgen
+-modified game_map.py to accomidate procgen
+-The game will now procedurally generate a map when main.py is run. The player will be intellignetly placed on a valid tile.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Credits
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
