@@ -41,3 +41,9 @@ v0.1, 030725a :
 	-@, changed to a character
 	-$, changed to fish
 
+v0.11, 030825i :
+-Functional procedural map generation is implemented! 
+-addeded procgen.py to handle procedural generation
+-modified main.py to accomidate procgen
+-modified game_map.py to accomidate procgen
+-The game will now procedurally generate a map when main.py is run. The player will be intellignetly placed on a valid tile.
