@@ -43,6 +43,7 @@ Major overhaul to EVERYTHING!!!
 	- main.py’s modifications allow for a map to be created with certain parameters, like length/width!
 - modified the newly created engine to support the gamemap file
 - engine handles the map like this: handle_events is called to determine details about a tile and render draws it
+
 <ins>v0.1, 030625a :</ins>
 - changed changelog from rtf to txt
 - updated changeling build convention info
