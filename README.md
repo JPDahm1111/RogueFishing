@@ -52,13 +52,19 @@ Major overhaul to EVERYTHING!!!
 	- @, changed to a character
 	- $, changed to fish
 
-**<ins>Latest Version:</ins>**
-**<ins>v0.11, 030825i -Procedural Generation</ins> :**
+<ins>v0.11, 030825i -Procedural Generation :</ins>
 - Functional procedural map generation is implemented!
 - addeded procgen.py to handle procedural generation
 - modified main.py to accomidate procgen
 - modified game_map.py to accomidate procgen
 - The game will now procedurally generate a map when main.py is run. The player will be intellignetly placed on a valid tile.
+
+**<ins>Latest Version:</ins>**
+**<ins>v0.11, 030925a - FOV and Fog of War</ins> :**
+- modified game_map.py (using arrays) calculates FOV and stores discovered portions of the caves, this heavily utilizes TCOD features!
+- modified tyle_types.py to add new "light" and "dark" tiles, these tiles are for parts of the dungeon that have been discovered or are yet to be discovered/ in sight and out of sight
+- added shroud which acts as a fog of war for undiscovered parts
+- modified the game engine to support the new light and dark tiles as well as the shroud mechanic
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
