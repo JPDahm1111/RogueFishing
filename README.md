@@ -28,10 +28,10 @@ Versions, starting from v0.1, denote major change.
 
 <ins>v0.1, 030525i :</ins>
 Laid down the basic foundations for creating the game:
--created the player character, represented with @
--spawned the player
--made the player controllable
--made multiple specialized files to perform tasks such as drawing the player character to controlling it
+- created the player character, represented with @
+- spawned the player
+- made the player controllable
+- made multiple specialized files to perform tasks such as drawing the player character to controlling it
 
 <ins>v0.1, 030525a :</ins>
 Major overhaul to EVERYTHING!!!
