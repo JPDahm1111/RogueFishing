@@ -26,15 +26,15 @@ After z comes aa, bb, cc etc. (including ii)
 Versions, starting from v0.1, denote major change.
 ---------------------------------------------------
 
-<ins>v0.1, 030525i :</ins>
-Laid down the basic foundations for creating the game:
+<ins>v0.1, 030525i - Humble Beginnings :</ins>
+- Laid down the basic foundations for creating the game:
 - created the player character, represented with @
 - spawned the player
 - made the player controllable
 - made multiple specialized files to perform tasks such as drawing the player character to controlling it
 
 <ins>v0.1, 030525a :</ins>
-Major overhaul to EVERYTHING!!!
+- Major overhaul to EVERYTHING!!!
 - created new files, entity.py and engine.py responsible for setting up entities and managing them as well as creating maps respectively. 
 - modified main.py to be more lightweight and delegate tasks
 - created tile_types.py, this file manages tiles and tile properties
@@ -53,19 +53,33 @@ Major overhaul to EVERYTHING!!!
 	- @, changed to a character
 	- $, changed to fish
 
-<ins>v0.11, 030825i -Procedural Generation :</ins>
+<ins>v0.11, 030825i - Procedural Generation :</ins>
 - Functional procedural map generation is implemented!
 - addeded procgen.py to handle procedural generation
 - modified main.py to accomidate procgen
 - modified game_map.py to accomidate procgen
 - The game will now procedurally generate a map when main.py is run. The player will be intellignetly placed on a valid tile.
 
-**<ins>Latest Version:</ins>**
-**<ins>v0.11, 030925a - FOV and Fog of War</ins> :**
+<ins>v0.11, 030925a - FOV and Fog of War</ins> :
 - modified game_map.py (using arrays) calculates FOV and stores discovered portions of the caves, this heavily utilizes TCOD features!
 - modified tyle_types.py to add new "light" and "dark" tiles, these tiles are for parts of the dungeon that have been discovered or are yet to be discovered/ in sight and out of sight
 - added shroud which acts as a fog of war for undiscovered parts
 - modified the game engine to support the new light and dark tiles as well as the shroud mechanic
+
+**<ins>Latest Version:</ins>**
+**<ins>v0.11, 031025a - Intelligent entity spawning :</ins> :**
+- Entities now spawn inside rooms!
+- Basic framework for attacks and enemy moves set up!
+- Modified engine.py to accomidate new entities
+- modified main.py to remove placeholder entities and old spawning system
+- modified engine.py to remove entity rendering
+	- gamemap.py now is responisble for this
+- modified procgen.py to associate the player with entities 
+- added new parameters to the procgen system in main.py (max entities per room)
+- Modified entity.py to support the new entity spawning system
+- created entity_factories.py, which acts as a conduit for entities and allows for the various entities to be defined and customized! 
+- added basic melee attack abilities in actions.py
+- changed action type in input_handlers.py from "MovementAction" to "BumpAction" to support more potential interactions such as attacks
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
