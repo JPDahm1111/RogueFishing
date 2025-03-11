@@ -53,3 +53,17 @@ v0.11, 030925a :
 - modified tyle_types.py to add new "light" and "dark" tiles, these tiles are for parts of the dungeon that have been discovered or are yet to be discovered/ in sight and out of sight
 - added shroud which acts as a fog of war for undiscovered parts
 - modified the game engine to support the new light and dark tiles as well as the shroud mechanic
+
+v0.11, 031025a -Intelligent entity spawning :
+- Entities now spawn inside rooms!
+- Basic framework for attacks and enemy moves set up!
+- Modified engine.py to accomidate new entities
+- modified main.py to remove placeholder entities and old spawning system
+- modified engine.py to remove entity rendering
+	-gamemap.py now is responisble for this
+- modified procgen.py to associate the player with entities 
+- added new parameters to the procgen system in main.py (max entities per room)
+- Modified entity.py to support the new entity spawning system
+- created entity_factories.py, which acts as a conduit for entities and allows for the various entities to be defined and customized! 
+- added basic melee attack abilities in actions.py
+- changed action type in input_handlers.py from "MovementAction" to "BumpAction" to support more potential interactions such as attacks

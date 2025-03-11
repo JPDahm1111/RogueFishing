@@ -12,7 +12,7 @@
 
 #imports
 
-from typing import Set, Iterable, Any
+from typing import Iterable, Any
 
 from tcod.context import Context
 from tcod.console import Console
@@ -25,12 +25,15 @@ from input_handlers import EventHandler
 #This first bit manages the player and creates a pseudo list exclusive to TCOD that handles entities.
 #the pseudo list ensures one entity cannot be added to it multiple times
 class Engine:
-    def __init__(self, entities: Set[Entity], event_handler: EventHandler, game_map: GameMap, player: Entity):
-        self.entities = entities
+    def __init__(self, event_handler: EventHandler, game_map: GameMap, player: Entity):
         self.event_handler = event_handler
         self.game_map = game_map
         self.player = player
         self.update_fov()
+
+    def handle_enemy_turns(self) -> None:
+        for entity in self.game_map.entities - {self.player}:
+            print(f'The {entity.name} wonders when it will get to take a real turn.')
         
 
     #This iterates through events
@@ -43,7 +46,7 @@ class Engine:
             #modified to support gamemap as of 030525a
             #calls to actions 
             action.perform(self, self.player)
-
+            self.handle_enemy_turns()
             self.update_fov()  # Update the FOV before the players next action.
 
     def update_fov(self) -> None:
@@ -60,10 +63,6 @@ class Engine:
     def render(self, console: Console, context: Context) -> None:
         self.game_map.render(console)
         
-        for entity in self.entities:
-            # Only print entities that are in the FOV
-            if self.game_map.visible[entity.x, entity.y]:
-                console.print(entity.x, entity.y, entity.char, fg=entity.color)
 
 
         context.present(console)

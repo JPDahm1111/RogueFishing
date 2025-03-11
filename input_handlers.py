@@ -14,7 +14,7 @@ from typing import Optional
 
 import tcod.event
 
-from actions import Action, EscapeAction, MovementAction
+from actions import Action, BumpAction, EscapeAction
 
 #This sets up a general event handler that I can use for a variety of scenarios
 class EventHandler(tcod.event.EventDispatch[Action]):
@@ -27,13 +27,13 @@ class EventHandler(tcod.event.EventDispatch[Action]):
         key = event.sym
         #player movement controls
         if key == tcod.event.K_UP:
-            action = MovementAction(dx=0, dy=-1)
+            action = BumpAction(dx=0, dy=-1)
         elif key == tcod.event.K_DOWN:
-            action = MovementAction(dx=0, dy=1)
+            action = BumpAction(dx=0, dy=1)
         elif key == tcod.event.K_LEFT:
-            action = MovementAction(dx=-1, dy=0)
+            action = BumpAction(dx=-1, dy=0)
         elif key == tcod.event.K_RIGHT:
-            action = MovementAction(dx=1, dy=0)
+            action = BumpAction(dx=1, dy=0)
         #escape kills the game
         elif key == tcod.event.K_ESCAPE:
             action = EscapeAction()
