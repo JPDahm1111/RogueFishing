@@ -9,12 +9,9 @@
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications---------
-
-
+#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me (JPD)
 
 #imports
-
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -26,7 +23,7 @@ from render_order import RenderOrder
 if TYPE_CHECKING:
     from entity import Actor
 
-
+#this allows "classes" to be created and player/actor attributes to be managed
 class Fighter(BaseComponent):
     entity: Actor
     def __init__(self, hp: int, defense: int, power: int):
@@ -52,7 +49,7 @@ class Fighter(BaseComponent):
             self.engine.event_handler = GameOverEventHandler(self.engine)
         else:
             death_message = f"{self.entity.name} is dead!"
-
+        #creates "corpse"
         self.entity.char = "%"
         self.entity.color = (191, 0, 0)
         self.entity.blocks_movement = False

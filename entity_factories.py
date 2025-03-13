@@ -8,7 +8,7 @@
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications---------
+#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me (JPD)
 
 #imports
 
@@ -16,10 +16,14 @@ from components.ai import HostileEnemy
 from components.fighter import Fighter
 from entity import Actor
 
+#These options allow entities to be created and customized!
+#entitiy visual appearance and gameplay attributes customizable! yipeeee!
+
 player = Actor(
     char="@",
     color=(255, 255, 255),
     name="Player",
+    #because player doesn't use ai this is useless vvv
     ai_cls=HostileEnemy,
     fighter=Fighter(hp=30, defense=2, power=5),
 )

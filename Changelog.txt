@@ -91,3 +91,9 @@ errors
 - added basic health bar
 - Death config in fighter.py
 - Player attribute framework in fighter.py
+
+v0.12, 031325a 
+- Modified credits across most files to be more descriptive
+- Commented up the files in the folder "components" which were added in v.12 031225i
+- Commented up entity_factories.py to make it's new capabilities more clear
+- Modified fontsheet to add new custom entity sprites
