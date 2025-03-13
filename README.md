@@ -66,8 +66,7 @@ Versions, starting from v0.1, denote major change.
 - added shroud which acts as a fog of war for undiscovered parts
 - modified the game engine to support the new light and dark tiles as well as the shroud mechanic
 
-**<ins>Latest Version:</ins>**
-**<ins>v0.11, 031025a - Intelligent entity spawning :</ins> :**
+<ins>v0.11, 031025a - Intelligent entity spawning :</ins>
 - Entities now spawn inside rooms!
 - Basic framework for attacks and enemy moves set up!
 - Modified engine.py to accomidate new entities
@@ -80,13 +79,46 @@ Versions, starting from v0.1, denote major change.
 - created entity_factories.py, which acts as a conduit for entities and allows for the various entities to be defined and customized! 
 - added basic melee attack abilities in actions.py
 - changed action type in input_handlers.py from "MovementAction" to "BumpAction" to support more potential interactions such as attacks
+
+<ins>v0.11, 031125a</ins>
+- Modified tileset
+
+<ins>v0.11, 031225a</ins>
+- Modified tileset
+  
+**<ins>Latest Version:</ins>**
+**<ins>v0.12, 031225i - Ai implementation and optimizations! :</ins>**
+- The tutorial used some outdated syntax, these fixes should stop non fatal futureproofing 
+errors
+- This should also optimize the game and make it run significantly better 
+- Set up groundwork for combat
+- Reworked/futureproofed actions.py
+- Reworked/futureproofed input_handlers.py
+- Reworked/futureproofed game_map.py
+- Reworked/futureproofed main.py
+- Reworked/futureproofed entity.py
+- Reworked/futureproofed procgen.py
+- Reworked/futureproofed engine.py
+- Created new components folder in the root, this contains information relating to combat and enemy ai
+- Modified entity.py to accomidate new AI
+- added new hostile ai framework
+- modified entity_factories to add new parameters for NPC types such as ai type
+- modified npc ai to only attack in 4 cardinal directions
+- made attacks deal damage
+- made the player and enemies able to die
+- added render_order.py which allows us to determine the order in which npcs/entities are drawn
+- added basic health bar
+- Death config in fighter.py
+- Player attribute framework in fighter.py
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Python-TCOD: Copyright (c) 2009-2023, Kyle Benesch and the python-tcod contributors.
 All rights reserved. Python-TCOD's Github page can be found at https://github.com/libtcod/python-tcod. Documentation for Python-TCOD can be found at https://python-tcod.readthedocs.io/en/latest/#.
 
-Roguelike Tutorials, the website for Roguelike tutorials which I use code from in this project, can be found at https://rogueliketutorials.com
+Roguelike Tutorials, the website for Roguelike tutorials which I use code from in this project, can be found at https://rogueliketutorials.com. Roguelike tutorials was created by Tyler Standridge. 
+
 
 
 
