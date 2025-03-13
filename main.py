@@ -20,7 +20,6 @@ from engine import Engine
 #import entity file
 import entity_factories
 #import the game map file
-from input_handlers import EventHandler
 from procgen import generate_dungeon
 
 #Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications---------
@@ -45,25 +44,24 @@ def main() -> None:
         "dejavu10x10_gs_tc.png", 32, 8, tcod.tileset.CHARMAP_TCOD
     )
     #process/recieve events
-    event_handler = EventHandler()
+    player = copy.deepcopy(entity_factories.player)
 
     #spawn the player using entity factory as a reference
-    player = copy.deepcopy(entity_factories.player)
+    engine = Engine(player=player)
     
-    game_map = generate_dungeon(
+    engine.game_map = generate_dungeon(
         max_rooms=max_rooms,
         room_min_size=room_min_size,
         room_max_size=room_max_size,
         map_width=map_width,
         map_height=map_height,
         max_monsters_per_room=max_monsters_per_room,
-        player=player
+        engine=engine,
     )
 
 
 
-    engine = Engine(event_handler=event_handler, game_map=game_map, player=player)
-
+    engine.update_fov()
     
     #set custom tileset font and setup some windo info/create the screen
     with tcod.context.new_terminal(
@@ -81,17 +79,16 @@ def main() -> None:
             engine.render(console=root_console, context=context)
 
 
-            events = tcod.event.wait()
+            engine.event_handler.handle_events()
 
-            #Initially, there was a command that makde it so that the player "character" didnt trail
-            #now it clears previously drawn @s via the engine file
-            engine.handle_events(events)
 
-  
 
 
 if __name__ == "__main__":
     main()
 
 #end of used code---------
+
+
+#end of line
 

@@ -67,3 +67,27 @@ v0.11, 031025a -Intelligent entity spawning :
 - created entity_factories.py, which acts as a conduit for entities and allows for the various entities to be defined and customized! 
 - added basic melee attack abilities in actions.py
 - changed action type in input_handlers.py from "MovementAction" to "BumpAction" to support more potential interactions such as attacks
+
+v0.12, 031225i - Rework and attack basics :
+- The tutorial used some outdated syntax, these fixes should stop non fatal futureproofing 
+errors
+- This should also optimize the game and make it run significantly better 
+- Set up groundwork for combat
+- Reworked/futureproofed actions.py
+- Reworked/futureproofed input_handlers.py
+- Reworked/futureproofed game_map.py
+- Reworked/futureproofed main.py
+- Reworked/futureproofed entity.py
+- Reworked/futureproofed procgen.py
+- Reworked/futureproofed engine.py
+- Created new components folder in the root, this contains information relating to combat and enemy ai
+- Modified entity.py to accomidate new AI
+- added new hostile ai framework
+- modified entity_factories to add new parameters for NPC types such as ai type
+- modified npc ai to only attack in 4 cardinal directions
+- made attacks deal damage
+- made the player and enemies able to die
+- added render_order.py which allows us to determine the order in which npcs/entities are drawn
+- added basic health bar
+- Death config in fighter.py
+- Player attribute framework in fighter.py
