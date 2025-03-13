@@ -80,14 +80,13 @@ Versions, starting from v0.1, denote major change.
 - added basic melee attack abilities in actions.py
 - changed action type in input_handlers.py from "MovementAction" to "BumpAction" to support more potential interactions such as attacks
 
-<ins>v0.11, 031125a</ins>
-- Modified tileset
+<ins>v0.11, 031125a</ins> :
+- Modified fontsheet
 
-<ins>v0.11, 031225a</ins>
-- Modified tileset
+<ins>v0.11, 031225a</ins> :
+- Modified fontsheet
   
-**<ins>Latest Version:</ins>**
-**<ins>v0.12, 031225i - Ai implementation and optimizations! :</ins>**
+<ins>v0.12, 031225i - Ai implementation and optimizations! :</ins>
 - The tutorial used some outdated syntax, these fixes should stop non fatal futureproofing 
 errors
 - This should also optimize the game and make it run significantly better 
@@ -111,13 +110,45 @@ errors
 - Death config in fighter.py
 - Player attribute framework in fighter.py
 
+<ins>v0.12, 031325a</ins> :
+- Modified credits across most files to be more descriptive
+- Commented up the files in the folder "components" which were added in v.12 031225i
+- Commented up entity_factories.py to make it's new capabilities more clear
+- Modified fontsheet to add new custom entity sprites
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Python-TCOD: Copyright (c) 2009-2023, Kyle Benesch and the python-tcod contributors.
-All rights reserved. Python-TCOD's Github page can be found at https://github.com/libtcod/python-tcod. Documentation for Python-TCOD can be found at https://python-tcod.readthedocs.io/en/latest/#.
+<ins>Python-TCOD:</ins> Copyright (c) 2009-2023, Kyle Benesch and the python-tcod contributors.
+All rights reserved. Python-TCOD's Github page can be found at https://github.com/libtcod/python-tcod. Documentation for Python-TCOD can be found at https://python-tcod.readthedocs.io/en/latest/#. Python-tcod is distributed under the Simplified 2-clause FreeBSD license.
+BSD 2-Clause License
 
-Roguelike Tutorials, the website for Roguelike tutorials which I use code from in this project, can be found at https://rogueliketutorials.com. Roguelike tutorials was created by Tyler Standridge. 
+Copyright (c) 2009-2023, Kyle Benesch and the python-tcod contributors.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+<ins>Roguelike Tutorials:</ins>
+Most of the framework for RogueFishing was created using this tutorial, including code taken directly from it. The website for Roguelike tutorials can be found at https://rogueliketutorials.com. Roguelike tutorials was created by Tyler Standridge, and has no copyright information associated with it. 
 
 
 
