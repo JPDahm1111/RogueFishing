@@ -17,6 +17,7 @@
 #Imports-----------
 import copy
 import tcod
+import color
 
 #import from other files
 from engine import Engine
@@ -34,12 +35,13 @@ def main() -> None:
 
     #General map tomfoolery and parameters
     map_width = 80
-    map_height = 45
+    map_height = 43
 
     room_max_size = 10
     room_min_size = 6
     max_rooms = 30
 
+    #entites per room
     max_monsters_per_room = 2
     
     #load tiles from tileset#
@@ -65,6 +67,10 @@ def main() -> None:
 
 
     engine.update_fov()
+
+    engine.message_log.add_message(
+        "You enter the caves again, maybe this time you'll reach the surface.", color.welcome_text
+    )
     
     #set custom tileset font and setup some windo info/create the screen
     with tcod.context.new_terminal(
@@ -79,10 +85,12 @@ def main() -> None:
         #the main game loop
         while True:
             #modified from initial, this essentially lets the player actually spawn in the middle of the screen
-            engine.render(console=root_console, context=context)
+            root_console.clear()
+            engine.event_handler.on_render(console=root_console)
+            context.present(root_console)
 
 
-            engine.event_handler.handle_events()
+            engine.event_handler.handle_events(context)
 
 
 

@@ -97,3 +97,17 @@ v0.12, 031325a
 - Commented up the files in the folder "components" which were added in v.12 031225i
 - Commented up entity_factories.py to make it's new capabilities more clear
 - Modified fontsheet to add new custom entity sprites
+
+v0.12, 031325b - UI and modernization changes
+- added color.py which manages color for ui elements
+- added message_log.py which outputs terminal messages ingame to emulate classic roguelikes
+- modified engine.py to support the new ingame log
+- modified main.py to support new log
+- modified fighter.py to support new log
+- modified actions.py to support new log
+- updated syntax in engine.py
+- added the ability to store mouse location in engine.py
+- mouse support and function to display info about entities in the log when the mouse is over them!
+- most of mouse code is in input_handlers.py
+- scroll through log possible!
+- press "v" to see full log!
