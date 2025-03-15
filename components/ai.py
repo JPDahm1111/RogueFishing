@@ -22,14 +22,14 @@ import numpy as np  ## type: ignore <- that isnt by me, for ex
 import tcod
 
 from actions import Action, MeleeAction, MovementAction, WaitAction
-from components.base_component import BaseComponent
+
 
 if TYPE_CHECKING:
     from entity import Actor
 
 #sets up default, basic ai
-class BaseAI(Action, BaseComponent):
-    entity: Actor
+class BaseAI(Action):
+    
     def perform(self) -> None:
         raise NotImplementedError()
 
