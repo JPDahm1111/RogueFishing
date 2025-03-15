@@ -25,110 +25,36 @@ After z comes aa, bb, cc etc. (including ii)
 
 Versions, starting from v0.1, denote major change.
 ---------------------------------------------------
+**Full changelog available in Changelog.txt**
+**<ins>Current Version</ins>**
+v0.12, 031425a - Inventory and items!
+- NOTE TO ME: GO HERE TO ADD MORE ENTITIES!
+- modified (modernized i guess) ai.py to remove errors (in components folder)
+- modified message_log.py to remove errors
+- modified game_map.py to remove errors
+- modified entity.py
+- modified base_component.py (in components folder)
+- modified fighter.py (in components folder)
+- addded new colors to color.py for UI
+- created healing function in fighter.py
+- created execeptions.py to manage special/unusual events...or exceptions!
+- modified main.py to accomidate new exceptions
+- modified input_handlers.py to accomidate new exceptions
+- modified engine.py to accomidate new exceptions
+- modified entity.py to support a new entity subclass for items
+	- I will probably do something similar for making water!
+- added consumable support to actions.py
+- added health potion to entity_factories.py
+- modified PROCGEN.PY to now spawn health potions!
+- modified main.py to add new item spawning parameters
+- created inventory.py to manage inventory 
+- modified entity.py to support inventory
+- added new inventory parameter to entity_factories.py
+- modified actions.py to allow items to be picked up
+- G key picks stuff up!
+- D key drops items!
+- I opens inventory
 
-<ins>v0.1, 030525i - Humble Beginnings :</ins>
-- Laid down the basic foundations for creating the game:
-- created the player character, represented with @
-- spawned the player
-- made the player controllable
-- made multiple specialized files to perform tasks such as drawing the player character to controlling it
-
-<ins>v0.1, 030525a :</ins>
-- Major overhaul to EVERYTHING!!!
-- created new files, entity.py and engine.py responsible for setting up entities and managing them as well as creating maps respectively. 
-- modified main.py to be more lightweight and delegate tasks
-- created tile_types.py, this file manages tiles and tile properties
-- created game_map.py which manages the game map (doesn’t draw it, that’s engine’s job)
-- modified main.py to support the newly created engine and map
-	- main.py’s modifications allow for a map to be created with certain parameters, like length/width!
-- modified the newly created engine to support the gamemap file
-- engine handles the map like this: handle_events is called to determine details about a tile and render draws it
-
-<ins>v0.1, 030625a :</ins>
-- changed changelog from rtf to txt
-- updated changeling build convention info
-
-<ins>v0.1, 030725a :</ins>
-- Modified "dejavu" font elements, characters changed:
-	- @, changed to a character
-	- $, changed to fish
-
-<ins>v0.11, 030825i - Procedural Generation :</ins>
-- Functional procedural map generation is implemented!
-- addeded procgen.py to handle procedural generation
-- modified main.py to accomidate procgen
-- modified game_map.py to accomidate procgen
-- The game will now procedurally generate a map when main.py is run. The player will be intellignetly placed on a valid tile.
-
-<ins>v0.11, 030925a - FOV and Fog of War</ins> :
-- modified game_map.py (using arrays) calculates FOV and stores discovered portions of the caves, this heavily utilizes TCOD features!
-- modified tyle_types.py to add new "light" and "dark" tiles, these tiles are for parts of the dungeon that have been discovered or are yet to be discovered/ in sight and out of sight
-- added shroud which acts as a fog of war for undiscovered parts
-- modified the game engine to support the new light and dark tiles as well as the shroud mechanic
-
-<ins>v0.11, 031025a - Intelligent entity spawning :</ins>
-- Entities now spawn inside rooms!
-- Basic framework for attacks and enemy moves set up!
-- Modified engine.py to accomidate new entities
-- modified main.py to remove placeholder entities and old spawning system
-- modified engine.py to remove entity rendering
-	- gamemap.py now is responisble for this
-- modified procgen.py to associate the player with entities 
-- added new parameters to the procgen system in main.py (max entities per room)
-- Modified entity.py to support the new entity spawning system
-- created entity_factories.py, which acts as a conduit for entities and allows for the various entities to be defined and customized! 
-- added basic melee attack abilities in actions.py
-- changed action type in input_handlers.py from "MovementAction" to "BumpAction" to support more potential interactions such as attacks
-
-<ins>v0.11, 031125a</ins> :
-- Modified fontsheet
-
-<ins>v0.11, 031225a</ins> :
-- Modified fontsheet
-  
-<ins>v0.12, 031225i - Ai implementation and optimizations! :</ins>
-- The tutorial used some outdated syntax, these fixes should stop non fatal futureproofing 
-errors
-- This should also optimize the game and make it run significantly better 
-- Set up groundwork for combat
-- Reworked/futureproofed actions.py
-- Reworked/futureproofed input_handlers.py
-- Reworked/futureproofed game_map.py
-- Reworked/futureproofed main.py
-- Reworked/futureproofed entity.py
-- Reworked/futureproofed procgen.py
-- Reworked/futureproofed engine.py
-- Created new components folder in the root, this contains information relating to combat and enemy ai
-- Modified entity.py to accomidate new AI
-- added new hostile ai framework
-- modified entity_factories to add new parameters for NPC types such as ai type
-- modified npc ai to only attack in 4 cardinal directions
-- made attacks deal damage
-- made the player and enemies able to die
-- added render_order.py which allows us to determine the order in which npcs/entities are drawn
-- added basic health bar
-- Death config in fighter.py
-- Player attribute framework in fighter.py
-
-<ins>v0.12, 031325a</ins> :
-- Modified credits across most files to be more descriptive
-- Commented up the files in the folder "components" which were added in v.12 031225i
-- Commented up entity_factories.py to make it's new capabilities more clear
-- Modified fontsheet to add new custom entity sprites
-
-<ins>v0.12, 031325b - UI and modernization changes :</ins>
-- added color.py which manages color for ui elements
-- added message_log.py which outputs terminal messages ingame to emulate classic roguelikes
-- modified engine.py to support the new ingame log
-- modified main.py to support new log
-- modified fighter.py to support new log
-- modified actions.py to support new log
-- updated syntax in engine.py
-- added the ability to store mouse location in engine.py
-- mouse support and function to display info about entities in the log when the mouse is over them!
-- most of mouse code is in input_handlers.py
-- scroll through log possible!
-- press "v" to see full log!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
