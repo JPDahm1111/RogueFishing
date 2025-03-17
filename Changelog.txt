@@ -139,3 +139,7 @@ v0.12, 031425a - Inventory and items!
 - G key picks stuff up!
 - D key drops items!
 - I opens inventory
+
+v0.12, 031725a 
+- added credits.txt to make credited authors more clear 
+- modified readme.md to update copyright information 
