@@ -16,17 +16,17 @@ I plan on turning roguefishing into more of a Roguelite similar to Dead Cells or
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Changelog**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Build naming convention:
 (Month)(Day)(Year)(letter)
 Ex: 010203a
 “i” is representative of an initial build, or the first build of a new version. 
 After “i” comes a-h then j-z
 After z comes aa, bb, cc etc. (including ii) 
+Versions, starting from v0.1, denote major change.</br>
 
-Versions, starting from v0.1, denote major change.
----------------------------------------------------
-**Full changelog available in Changelog.txt**
-**<ins>Current Version</ins>**
+**<ins>Full changelog available in Changelog.txt</ins>**</br>
+**<ins>Current Version:</ins>**</br>
 v0.12, 031725d 
 - modified line of code in fighter.py which would produce an error when a certain number was generated for a death message
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
