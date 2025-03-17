@@ -143,3 +143,7 @@ v0.12, 031425a - Inventory and items!
 v0.12, 031725a 
 - added credits.txt to make credited authors more clear 
 - modified readme.md to update copyright information 
+
+v0.12, 031725b
+- changed placeholder "troll" and "orc" into "Cave Horror" and "Fallen Fisher" 
+- Tweaked world-gen settings, the caves should now have far more diversity and complexity in generation 

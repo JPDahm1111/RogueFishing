@@ -38,9 +38,9 @@ def main() -> None:
     map_width = 80
     map_height = 43
 
-    room_max_size = 10
-    room_min_size = 6
-    max_rooms = 30
+    room_max_size = 14
+    room_min_size = 3
+    max_rooms = 33
 
     #mobs/items per room
     max_monsters_per_room = 2
