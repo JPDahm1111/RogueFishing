@@ -151,4 +151,7 @@ v0.12, 031725b
 v0.12, 031725c
 - added randomly generated messages!
 	- these messages are currently used for kills and deaths
-- created a general use function based on random that prints random messages, these can be sued for anything!
+- created a general use function based on random that prints random messages, these can be used for anything!
+
+v0.12, 031725d 
+- modified line of code in fighter.py which would produce an error when a certain number was generated for a death message
