@@ -96,7 +96,7 @@ class Fighter(BaseComponent):
                 death_message = "The blood pouring from your wounds doesn't bother you: you see your loved ones in the beautiful sunlight! One day you'll get to the surface for real."
                 death_message_color = color.player_die
 
-            elif RandInt2 == 10:
+            elif RandInt2 == 11:
                 death_message = "Death smiles at us all; all a man can do is smile back."
                 death_message_color = color.player_die
                 
