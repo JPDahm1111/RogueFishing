@@ -27,34 +27,8 @@ Versions, starting from v0.1, denote major change.
 ---------------------------------------------------
 **Full changelog available in Changelog.txt**
 **<ins>Current Version</ins>**
-v0.12, 031425a - Inventory and items!
-- NOTE TO ME: GO HERE TO ADD MORE ENTITIES!
-- modified (modernized i guess) ai.py to remove errors (in components folder)
-- modified message_log.py to remove errors
-- modified game_map.py to remove errors
-- modified entity.py
-- modified base_component.py (in components folder)
-- modified fighter.py (in components folder)
-- addded new colors to color.py for UI
-- created healing function in fighter.py
-- created execeptions.py to manage special/unusual events...or exceptions!
-- modified main.py to accomidate new exceptions
-- modified input_handlers.py to accomidate new exceptions
-- modified engine.py to accomidate new exceptions
-- modified entity.py to support a new entity subclass for items
-	- I will probably do something similar for making water!
-- added consumable support to actions.py
-- added health potion to entity_factories.py
-- modified PROCGEN.PY to now spawn health potions!
-- modified main.py to add new item spawning parameters
-- created inventory.py to manage inventory 
-- modified entity.py to support inventory
-- added new inventory parameter to entity_factories.py
-- modified actions.py to allow items to be picked up
-- G key picks stuff up!
-- D key drops items!
-- I opens inventory
-
+v0.12, 031725d 
+- modified line of code in fighter.py which would produce an error when a certain number was generated for a death message
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
