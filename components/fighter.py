@@ -17,6 +17,9 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 import color
 
+#added
+import random
+
 from components.base_component import BaseComponent
 from input_handlers import GameOverEventHandler
 from render_order import RenderOrder
@@ -25,6 +28,8 @@ if TYPE_CHECKING:
     from entity import Actor
 
 #this allows "classes" to be created and player/actor attributes to be managed
+
+    
 class Fighter(BaseComponent):
     parent: Actor
     def __init__(self, hp: int, defense: int, power: int):
@@ -43,15 +48,83 @@ class Fighter(BaseComponent):
         if self._hp == 0 and self.parent.ai:
             self.die()
 
-    #allows players and npcs to die
+    #allows players and npcs to die, chooses from multiple possible messages and prints them to the log
+    #by me :0
     def die(self) -> None:
+        #added
+        RandInt1 = random.randint(1, 7)
+        RandInt2 = random.randint(1, 11)
+        
         if self.engine.player is self.parent:
-            death_message = "As your last breath escapes your mangled body, only one light remains in the void that engulfs you: hope."
-            death_message_color = color.player_die
+            if RandInt2 == 1:
+                death_message = "As your last breath escapes your mangled body, only one light remains in the void that engulfs you: hope."
+                death_message_color = color.player_die
+            
+            elif RandInt2 == 2:
+                death_message = "You choked on fear and made a grave error. There is always a next chance!"
+                death_message_color = color.player_die
+
+            elif RandInt2 == 3:
+                death_message = "They just scored a lucky hit, you'll be better next time."
+                death_message_color = color.player_die
+
+            elif RandInt2 == 4:
+                death_message = "The pain is so intense that you lose consiousness for the last time, at least for this life."
+                death_message_color = color.player_die
+                
+            elif RandInt2 == 5:
+                death_message = "Final memories of the surface flash before your eyes, hopefully when you return one day the radiation will be gone."
+                death_message_color = color.player_die
+
+            elif RandInt2 == 6:
+                death_message = "You did so well, I'm proud of you. I'll see you next time."
+                death_message_color = color.player_die
+
+            elif RandInt2 == 7:
+                death_message = "No one said it would be easy, you need to try harder, you can do it!"
+                death_message_color = color.player_die       
+
+            elif RandInt2 == 8:
+                death_message = "The human body can only take so much: what's left of you lifelessly slumps to the ground. You'll be back though. "
+                death_message_color = color.player_die
+            
+            elif RandInt2 == 9:
+                death_message = "Time has Little to do With Infinity and Jelly Dougnuts."
+                death_message_color = color.player_die
+
+            elif RandInt2 == 10:
+                death_message = "The blood pouring from your wounds doesn't bother you: you see your loved ones in the beautiful sunlight! One day you'll get to the surface for real."
+                death_message_color = color.player_die
+
+            elif RandInt2 == 10:
+                death_message = "Death smiles at us all; all a man can do is smile back."
+                death_message_color = color.player_die
+                
             self.engine.event_handler = GameOverEventHandler(self.engine)
+            
         else:
-            death_message = f"{self.parent.name} won't be able to fulfill their dreams."
-            death_message_color = color.enemy_die
+            if RandInt1 == 1:
+                death_message = f"{self.parent.name} won't be able to fulfill their dreams."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 2:
+                death_message = f"{self.parent.name} is dead. You did this."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 3:
+                death_message = f"You didn't let {self.parent.name} run."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 4:
+                death_message = f"{self.parent.name} was alive just a moment ago, not anymore thanks to you."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 5:
+                death_message = f"{self.parent.name} tried to stop you, it was self defense, right?"
+                death_message_color = color.enemy_die
+            elif RandInt1 == 6:
+                death_message = f"{self.parent.name}'s flailing about finally stops. Did you make the right choice?"
+                death_message_color = color.enemy_die
+            elif RandInt1 == 7:
+                death_message = f"You murdered {self.parent.name}, they'll haunt you for the rest of your lives."
+                death_message_color = color.enemy_die
+        
         #creates "corpse"
         self.parent.char = "%"
         self.parent.color = (191, 0, 0)

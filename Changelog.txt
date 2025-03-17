@@ -147,3 +147,8 @@ v0.12, 031725a
 v0.12, 031725b
 - changed placeholder "troll" and "orc" into "Cave Horror" and "Fallen Fisher" 
 - Tweaked world-gen settings, the caves should now have far more diversity and complexity in generation 
+
+v0.12, 031725c
+- added randomly generated messages!
+	- these messages are currently used for kills and deaths
+- created a general use function based on random that prints random messages, these can be sued for anything!
