@@ -13,7 +13,7 @@
 #imports
 
 from components.ai import HostileEnemy
-from components.consumable import HealingConsumable
+from components import consumable
 from components.fighter import Fighter
 from components.inventory import Inventory
 from entity import Actor, Item
@@ -52,5 +52,19 @@ health_potion = Item(
     char="!",
     color=(127, 0, 255),
     name="Health Potion",
-    consumable=HealingConsumable(amount=4),
+    consumable=consumable.HealingConsumable(amount=4),
+)
+
+Single_Shot_Musket = Item(
+    char="`",
+    color=(165, 42, 42),
+    name="Single Shot Musket",
+    consumable=consumable. SingleShotMusket(damage=25, maximum_range=6),
+)
+
+Single_Shot_Blunderbuss = Item(
+    char="`",
+    color=(255, 0, 0),
+    name="Single Shot Blunderbuss",
+    consumable=consumable.SingleShotBlunderbuss(damage=12, radius=3),
 )

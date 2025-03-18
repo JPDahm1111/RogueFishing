@@ -155,3 +155,12 @@ v0.12, 031725c
 
 v0.12, 031725d 
 - modified line of code in fighter.py which would produce an error when a certain number was generated for a death message
+
+v0.12, 031725e - ranged weapons
+- added new UI colors to color.py
+- Added single shot muskets that deal massive damage
+- added new musket sprite to the spritesheet
+- added "enter" keybind class, these keys confirm actions
+- added targeting controls for ranged weapons
+- new "look" mode controlled by mouse which is activated by pressing "/"
+- added new single shot blunderbuss with an AOE attack, be careful, due to the nature of the caves if you shoot close to yourself your bound to be hit by ricochets!

@@ -52,7 +52,7 @@ class Fighter(BaseComponent):
     #by me :0
     def die(self) -> None:
         #added
-        RandInt1 = random.randint(1, 7)
+        RandInt1 = random.randint(1, 12)
         RandInt2 = random.randint(1, 11)
         
         if self.engine.player is self.parent:
@@ -65,7 +65,7 @@ class Fighter(BaseComponent):
                 death_message_color = color.player_die
 
             elif RandInt2 == 3:
-                death_message = "They just scored a lucky hit, you'll be better next time."
+                death_message = "They just got lucky, you'll be better next time."
                 death_message_color = color.player_die
 
             elif RandInt2 == 4:
@@ -73,7 +73,7 @@ class Fighter(BaseComponent):
                 death_message_color = color.player_die
                 
             elif RandInt2 == 5:
-                death_message = "Final memories of the surface flash before your eyes, hopefully when you return one day the radiation will be gone."
+                death_message = "Final memories of the surface flash before your eyes, hopefully when you return the radiation will be gone."
                 death_message_color = color.player_die
 
             elif RandInt2 == 6:
@@ -93,12 +93,13 @@ class Fighter(BaseComponent):
                 death_message_color = color.player_die
 
             elif RandInt2 == 10:
-                death_message = "The blood pouring from your wounds doesn't bother you: you see your loved ones in the beautiful sunlight! One day you'll get to the surface for real."
+                death_message = "You see your loved ones in the beautiful sunlight. One day you'll get to the surface for real."
                 death_message_color = color.player_die
 
             elif RandInt2 == 11:
                 death_message = "Death smiles at us all; all a man can do is smile back."
                 death_message_color = color.player_die
+            
                 
             self.engine.event_handler = GameOverEventHandler(self.engine)
             
@@ -123,6 +124,21 @@ class Fighter(BaseComponent):
                 death_message_color = color.enemy_die
             elif RandInt1 == 7:
                 death_message = f"You murdered {self.parent.name}, they'll haunt you for the rest of your lives."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 8:
+                death_message = f"You are covered with {self.parent.name}'s remains, disgusting."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 9:
+                death_message = f"It was you or {self.parent.name}. You were stronger."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 10:
+                death_message = f"You kill {self.parent.name} for the empire."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 11:
+                death_message = f"You thought {self.parent.name} was stronger."
+                death_message_color = color.enemy_die
+            elif RandInt1 == 12:
+                death_message = f'"How many more will I have to kill" you think to yourself as you finish off {self.parent.name}.'
                 death_message_color = color.enemy_die
         
         #creates "corpse"

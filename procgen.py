@@ -58,7 +58,7 @@ class RectangularRoom:
             and self.y1 <= other.y2
             and self.y2 >= other.y1
         )
-#entity placement system
+#entity placement system VERY IMPORTANT
 def place_entities(
     room: RectangularRoom, dungeon: GameMap, maximum_monsters: int, maximum_items: int
 ) -> None:
@@ -69,19 +69,27 @@ def place_entities(
         x = random.randint(room.x1 + 1, room.x2 - 1)
         y = random.randint(room.y1 + 1, room.y2 - 1)
 
-        #actually spawn entities!
+        #actually spawn entities! #VERY IMPORTANT
+        #the random.random < x lines determine spawn rates
         if not any(entity.x == x and entity.y == y for entity in dungeon.entities):
-            if random.random() < 0.8:
+            if random.random() < 0.9:
                 entity_factories.orc.spawn(dungeon, x, y)
             else:
                 entity_factories.troll.spawn(dungeon, x, y)
-
+#Item SPAWNING, VERY IMPORTANT
     for i in range(number_of_items):
         x = random.randint(room.x1 + 1, room.x2 - 1)
         y = random.randint(room.y1 + 1, room.y2 - 1)
 
         if not any(entity.x == x and entity.y == y for entity in dungeon.entities):
-            entity_factories.health_potion.spawn(dungeon, x, y)
+            item_chance = random.random()
+
+            if item_chance < 0.5:
+                entity_factories.health_potion.spawn(dungeon, x, y)
+            elif item_chance < 0.8:
+                entity_factories.Single_Shot_Blunderbuss.spawn(dungeon, x, y)
+            else:
+                entity_factories.Single_Shot_Musket.spawn(dungeon, x, y)
 
     
 def tunnel_between(
