@@ -15,65 +15,43 @@
 
 
 #Imports-----------
-import copy
+
 import traceback
 import tcod
 import color
 
 #import from other files
-from engine import Engine
+
 #import entity file
-import entity_factories
-#import the game map file
-from procgen import generate_dungeon
+
+
+import exceptions
+import input_handlers
+
+import setup_game
+
 
 #Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me (JPD)
-###Draws the player (@)###
+
+#this function manages savefiles and calls them from engine.py
+def save_game(handler: input_handlers.BaseEventHandler, filename: str) -> None:
+    """If the current event handler has an active Engine then save it."""
+    if isinstance(handler, input_handlers.EventHandler):
+        handler.engine.save_as(filename)
+        print("Game saved.")
+
 def main() -> None:
     #sets screen size
     screen_width = 80
     screen_height = 50
 
-    #General map tomfoolery and parameters
-    map_width = 80
-    map_height = 43
-
-    room_max_size = 15
-    room_min_size = 3
-    max_rooms = 40
-
-    #mobs/items per room
-    max_monsters_per_room = 2
-    max_items_per_room = 2
-    
+ 
     #load tiles from tileset#
     tileset = tcod.tileset.load_tilesheet(
         "dejavu10x10_gs_tc.png", 32, 8, tcod.tileset.CHARMAP_TCOD
     )
-    #process/recieve events
-    player = copy.deepcopy(entity_factories.player)
 
-    #spawn the player using entity factory as a reference
-    engine = Engine(player=player)
-    
-    engine.game_map = generate_dungeon(
-        max_rooms=max_rooms,
-        room_min_size=room_min_size,
-        room_max_size=room_max_size,
-        map_width=map_width,
-        map_height=map_height,
-        max_monsters_per_room=max_monsters_per_room,
-        max_items_per_room=max_items_per_room,
-        engine=engine,
-    )
-
-
-
-    engine.update_fov()
-
-    engine.message_log.add_message(
-        "You enter the caves again, maybe this time you'll reach the surface.", color.welcome_text
-    )
+    handler: input_handlers.BaseEventHandler = setup_game.MainMenu()
     
     #set custom tileset font and setup some windo info/create the screen
     with tcod.context.new_terminal(
@@ -85,24 +63,31 @@ def main() -> None:
     ) as context:
         root_console = tcod.console.Console(screen_width, screen_height, order="F")
         
-        #the main game loop
-        while True:
-            #modified from initial, this essentially lets the player actually spawn in the middle of the screen
-            root_console.clear()
-            engine.event_handler.on_render(console=root_console)
-            context.present(root_console)
+        try:
+            while True:
+                root_console.clear()
+                handler.on_render(console=root_console)
+                context.present(root_console)
 
-
-            try:
-                for event in tcod.event.wait():
-                    context.convert_event(event)
-                    engine.event_handler.handle_events(event)
-            except Exception:  # Handle exceptions in game.
-                traceback.print_exc()  # Print error to stderr.
-                # Then print the error to the message log.
-                engine.message_log.add_message(traceback.format_exc(), color.error)
-
-
+                try:
+                    for event in tcod.event.wait():
+                        context.convert_event(event)
+                        handler = handler.handle_events(event)
+                except Exception:  # Handle exceptions in game.
+                    traceback.print_exc()  # Print error to stderr.
+                    # Then print the error to the message log.
+                    if isinstance(handler, input_handlers.EventHandler):
+                        handler.engine.message_log.add_message(
+                            traceback.format_exc(), color.error
+                        )
+        except exceptions.QuitWithoutSaving:
+            raise
+        except SystemExit:  # Save and quit.
+            save_game(handler, "savegame.sav")
+            raise
+        except BaseException:  # Save on any other unexpected exception.
+            save_game(handler, "savegame.sav")
+            raise
 
 
 if __name__ == "__main__":

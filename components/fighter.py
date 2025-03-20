@@ -21,7 +21,7 @@ import color
 import random
 
 from components.base_component import BaseComponent
-from input_handlers import GameOverEventHandler
+
 from render_order import RenderOrder
 
 if TYPE_CHECKING:
@@ -101,7 +101,7 @@ class Fighter(BaseComponent):
                 death_message_color = color.player_die
             
                 
-            self.engine.event_handler = GameOverEventHandler(self.engine)
+           
             
         else:
             if RandInt1 == 1:

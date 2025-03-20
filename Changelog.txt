@@ -164,3 +164,25 @@ v0.12, 031725e - ranged weapons
 - added targeting controls for ranged weapons
 - new "look" mode controlled by mouse which is activated by pressing "/"
 - added new single shot blunderbuss with an AOE attack, be careful, due to the nature of the caves if you shoot close to yourself your bound to be hit by ricochets!
+
+v0.12, 031925a - Save Files
+- added new colors to color.py
+- added new action handler system to input_handlers.py, this part is completely above me but it should allow for save file stuff to work.
+- modified main.py to support new menus/saves n such
+- added new file: setup_game.py
+	- this file manages the main menu!
+- modified engine.py to support new save system
+- removed parameters from main.py
+	- generally trimmed main.py down significantly 
+- added save and load functions to setup_game.py
+- added lzma, pickle andddddd traceback to support file saving/loading
+- created RogueFishing.gitignore for my own dev uses
+- Game setup parameters moved to setup_game.py
+- TO DO: 
+	- make menu nicer
+	- random splash text!
+	- make the menu screen art not look god awful
+	- make more sprites
+	- make placeholder friendly NPC using confused AI
+	- make musket use different mechanics (current ones are abysmal lol) 
+

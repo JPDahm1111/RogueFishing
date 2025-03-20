@@ -34,7 +34,7 @@ player = Actor(
 orc = Actor(
     char="}",
     color=(63, 127, 63),
-    name="Fallen Fisher",
+    name="Feral Human",
     ai_cls=HostileEnemy,
     fighter=Fighter(hp=10, defense=0, power=3),
     inventory=Inventory(capacity=0),
@@ -49,7 +49,7 @@ troll = Actor(
 )
 
 health_potion = Item(
-    char="!",
+    char="|",
     color=(127, 0, 255),
     name="Health Potion",
     consumable=consumable.HealingConsumable(amount=4),
@@ -59,12 +59,12 @@ Single_Shot_Musket = Item(
     char="`",
     color=(165, 42, 42),
     name="Single Shot Musket",
-    consumable=consumable. SingleShotMusket(damage=25, maximum_range=6),
+    consumable=consumable. SingleShotMusket(damage=15, maximum_range=7),
 )
 
 Single_Shot_Blunderbuss = Item(
     char="`",
     color=(255, 0, 0),
     name="Single Shot Blunderbuss",
-    consumable=consumable.SingleShotBlunderbuss(damage=12, radius=3),
+    consumable=consumable.SingleShotBlunderbuss(damage=10, radius=3),
 )
