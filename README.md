@@ -27,8 +27,27 @@ Versions, starting from v0.1, denote major change.</br>
 
 **<ins>Full changelog available in Changelog.txt</ins>**</br>
 **<ins>Current Version:</ins>**</br>
-v0.12, 031725d 
-- modified line of code in fighter.py which would produce an error when a certain number was generated for a death message
+v0.12, 031925a - Save Files
+- added new colors to color.py
+- added new action handler system to input_handlers.py, this part is completely above me but it should allow for save file stuff to work.
+- modified main.py to support new menus/saves n such
+- added new file: setup_game.py
+	- this file manages the main menu!
+- modified engine.py to support new save system
+- removed parameters from main.py
+	- generally trimmed main.py down significantly 
+- added save and load functions to setup_game.py
+- added lzma, pickle andddddd traceback to support file saving/loading
+- created RogueFishing.gitignore for my own dev uses
+- Game setup parameters moved to setup_game.py
+- TO DO: 
+	- make menu nicer
+	- random splash text!
+	- make the menu screen art not look god awful
+	- make more sprites
+	- make placeholder friendly NPC using confused AI
+	- make musket use different mechanics (current ones are abysmal lol)
+ 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
