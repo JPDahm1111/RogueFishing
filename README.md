@@ -37,7 +37,10 @@ v0.12, 031925a - Save Files
 - removed parameters from main.py
 	- generally trimmed main.py down significantly 
 - added save and load functions to setup_game.py
-- added lzma, pickle andddddd traceback to support file saving/loading
+- added lzma, pickle andddddd traceback to support file saving/loading (via imports)
+	- lzma is a tata compression system, essential for savefiles
+  	- pickle allows for file reading/writing
+  	- traceback formats the data
 - created RogueFishing.gitignore for my own dev uses
 - Game setup parameters moved to setup_game.py
 - TO DO: 
