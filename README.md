@@ -49,12 +49,31 @@ v0.13, 032025i - Exploration and Progression!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 To-Do:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Short Term:
 - ~~make menu nicer~~
 - random splash text!
 - ~~make the menu screen art not look god awful~~
 - make more sprites
 - make placeholder friendly NPC using confused AI
-- make musket use different mechanics (current ones are abysmal lol) 
+- make musket use different mechanics (current ones are abysmal lol)
+- rework medical supplies and system
+- Floor/wall tiles 
+Long term:
+- add new room types
+- add fishing system
+  	- new water entity type
+  	- fishing proficiency player stat (luck?)
+- friendly NPCs
+- currency (fish)
+- backtracking?
+- factions
+- weapons
+- armor
+- loot tables
+- mob level scaling
+- boss levels
+- level types
+  	  
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
