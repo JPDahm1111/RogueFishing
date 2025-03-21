@@ -27,30 +27,34 @@ Versions, starting from v0.1, denote major change.</br>
 
 **<ins>Full changelog available in Changelog.txt</ins>**</br>
 **<ins>Current Version:</ins>**</br>
-v0.12, 031925a - Save Files
-- added new colors to color.py
-- added new action handler system to input_handlers.py, this part is completely above me but it should allow for save file stuff to work.
-- modified main.py to support new menus/saves n such
-- added new file: setup_game.py
-	- this file manages the main menu!
-- modified engine.py to support new save system
-- removed parameters from main.py
-	- generally trimmed main.py down significantly 
-- added save and load functions to setup_game.py
-- added lzma, pickle andddddd traceback to support file saving/loading (via imports)
-	- lzma is a tata compression system, essential for savefiles
-  	- pickle allows for file reading/writing
-  	- traceback formats the data
-- created RogueFishing.gitignore for my own dev uses
-- Game setup parameters moved to setup_game.py
-- TO DO: 
-	- make menu nicer
-	- random splash text!
-	- make the menu screen art not look god awful
-	- make more sprites
-	- make placeholder friendly NPC using confused AI
-	- make musket use different mechanics (current ones are abysmal lol)
+v0.13, 032025i - Exploration and Progression!
+- added new title screen that replaces the WIP version
+- added new colors
+- modified old colors
+- > is set as the new passageway
+- push ">" to travel through the passage (you may have to hold shift)
+- this new passageway is in tile_types.py
+- modified both procgen.py and game_map.py to spawn the new passages
+- modifed engine.py to add the new cave section
+- actions.py was modifed to enable passage system
+- render_functions.py modified 
+- the current floor is currently displayed 
+- added new level.py file
+	- this manages exp and the leveling system
+- modified entity.py to use new leveling system
+- modified entity_factories.py to use new leveling system
+- added character information to input_handlers.py
+	-press "c" to see this
  
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+To-Do:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- ~~make menu nicer~~
+- random splash text!
+- ~~make the menu screen art not look god awful~~
+- make more sprites
+- make placeholder friendly NPC using confused AI
+- make musket use different mechanics (current ones are abysmal lol) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ins>**Credits**</ins>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
