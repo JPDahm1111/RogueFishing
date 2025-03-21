@@ -186,3 +186,22 @@ v0.12, 031925a - Save Files
 	- make placeholder friendly NPC using confused AI
 	- make musket use different mechanics (current ones are abysmal lol) 
 
+v0.13, 032025i - Exploration and Progression!
+- added new title screen that replaces the WIP version
+- added new colors
+- modified old colors
+- > is set as the new passageway
+- push ">" to travel through the passage (you may have to hold shift)
+- this new passageway is in tile_types.py
+- modified both procgen.py and game_map.py to spawn the new passages
+- modifed engine.py to add the new cave section
+- actions.py was modifed to enable passage system
+- render_functions.py modified 
+- the current floor is currently displayed 
+- added new level.py file
+	- this manages exp and the leveling system
+- modified entity.py to use new leveling system
+- modified entity_factories.py to use new leveling system
+- added character information to input_handlers.py
+	-press "c" to see this
+

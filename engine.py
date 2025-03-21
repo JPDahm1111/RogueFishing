@@ -25,17 +25,19 @@ from tcod.map import compute_fov
 import exceptions
 
 from message_log import MessageLog
-from render_functions import render_names_at_mouse_location
+import render_functions
 
 if TYPE_CHECKING:
     from entity import Actor
-    from game_map import GameMap
+    from game_map import GameMap, GameWorld
     
 
 #This first bit manages the player and creates a pseudo list exclusive to TCOD that handles entities.
 #the pseudo list ensures one entity cannot be added to it multiple times
 class Engine:
     game_map: GameMap
+    #multiple maps achieved through caving
+    game_world: GameWorld
 
     def __init__(self, player: Actor):
         self.message_log = MessageLog()
@@ -67,15 +69,24 @@ class Engine:
     #VERY CRUCIAL/useful!!!
     def render(self, console: Console) -> None:
         self.game_map.render(console)
+        
         self.message_log.render(console=console, x=21, y=45, width=40, height=5)
 
         console.print(
             x=1,
-            y=47,
+            y=46,
             string=f"HP: {self.player.fighter.hp}/{self.player.fighter.max_hp}",
         )
+#shows cave level and entity names
+        render_functions.render_cave_level(
+            console=console,
+            cave_level=self.game_world.current_floor,
+            location=(0, 47),
+        )
 
-        render_names_at_mouse_location(console=console, x=21, y=44, engine=self)
+        render_functions.render_names_at_mouse_location(
+            console=console, x=21, y=44, engine=self
+        )
 
 #this function manages savefiles
     def save_as(self, filename: str) -> None:

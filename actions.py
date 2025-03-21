@@ -99,6 +99,19 @@ class WaitAction(Action):
     def perform(self) -> None:
         pass
 
+class TakePassageAction(Action):
+    def perform(self) -> None:
+        """
+        Take the passage, if any exist at the entity's location.
+        """
+        if (self.entity.x, self.entity.y) == self.engine.game_map.downstairs_location:
+            self.engine.game_world.generate_floor()
+            self.engine.message_log.add_message(
+                "You crawl through the tunnel to find more caverns.", color.ascend
+            )
+        else:
+            raise exceptions.Impossible("You can't crawl through there.")
+
 class ActionWithDirection(Action):
     def __init__(self, entity: Actor, dx: int, dy: int):
         super().__init__(entity)

@@ -15,7 +15,7 @@
 #imports
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import Tuple, TYPE_CHECKING
 
 import color
 
@@ -34,6 +34,17 @@ def get_names_at_location(x: int, y: int, game_map: GameMap) -> str:
     )
 
     return names.capitalize()
+
+#displays cave level
+def render_cave_level(
+    console: Console, cave_level: int, location: Tuple[int, int]
+) -> None:
+    """
+    Render the level the player is currently on, at the given location.
+    """
+    x, y = location
+
+    console.print(x=x, y=y, string=f"Cave level: {cave_level}")
 
 def render_names_at_mouse_location(
     console: Console, x: int, y: int, engine: Engine

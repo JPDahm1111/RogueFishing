@@ -69,7 +69,7 @@ class Fighter(BaseComponent):
                 death_message_color = color.player_die
 
             elif RandInt2 == 4:
-                death_message = "The pain is so intense that you lose consiousness for the last time, at least for this life."
+                death_message = "The pain is so intense that you lose consiousness for the last time, at least in this life."
                 death_message_color = color.player_die
                 
             elif RandInt2 == 5:
@@ -97,7 +97,7 @@ class Fighter(BaseComponent):
                 death_message_color = color.player_die
 
             elif RandInt2 == 11:
-                death_message = "Death smiles at us all; all a man can do is smile back."
+                death_message = "Death smiles at us all. All a man can do is smile back."
                 death_message_color = color.player_die
             
                 
@@ -150,6 +150,7 @@ class Fighter(BaseComponent):
         self.parent.render_order = RenderOrder.CORPSE
         
         self.engine.message_log.add_message(death_message, death_message_color)
+        self.engine.player.level.add_xp(self.parent.level.xp_given)
 
     #this function heals an entity!
     def heal(self, amount: int) -> int:
