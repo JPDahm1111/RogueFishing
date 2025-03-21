@@ -54,16 +54,16 @@ troll = Actor(
 
 health_potion = Item(
     char="|",
-    color=(127, 0, 255),
-    name="Health Potion",
+    color=(255, 255, 255),
+    name="Bandages",
     consumable=consumable.HealingConsumable(amount=4),
 )
 
 Single_Shot_Musket = Item(
-    char="`",
+    char="↔",
     color=(165, 42, 42),
-    name="Single Shot Musket",
-    consumable=consumable. SingleShotMusket(damage=15, maximum_range=7),
+    name="Single Shot Handgun",
+    consumable=consumable. SingleShotMusket(damage=12, maximum_range=5),
 )
 
 Single_Shot_Blunderbuss = Item(

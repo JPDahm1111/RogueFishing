@@ -86,7 +86,7 @@ def place_entities(
 
             if item_chance < 0.5:
                 entity_factories.health_potion.spawn(dungeon, x, y)
-            elif item_chance < 0.8:
+            elif item_chance < 0.65:
                 entity_factories.Single_Shot_Blunderbuss.spawn(dungeon, x, y)
             else:
                 entity_factories.Single_Shot_Musket.spawn(dungeon, x, y)

@@ -205,3 +205,5 @@ v0.13, 032025i - Exploration and Progression!
 - added character information to input_handlers.py
 	-press "c" to see this
 
+v0.13, 032025a - minor changes
+

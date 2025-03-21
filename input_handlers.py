@@ -276,8 +276,8 @@ class LevelUpEventHandler(AskUserEventHandler):
             bg=(0, 0, 0),
         )
 
-        console.print(x=x + 1, y=1, string="Your time in the caves leads to a technical breakthrough, choose which area to dedicate your learning")
-        console.print(x=x + 1, y=2, string="Select an attribute to increase.")
+        console.print(x=x + 1, y=1, string="You reach a breakthrough!")
+        console.print(x=x + 1, y=2, string="Enchance one:")
 
         console.print(
             x=x + 1,

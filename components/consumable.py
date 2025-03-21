@@ -62,12 +62,12 @@ class HealingConsumable(Consumable):
 
         if amount_recovered > 0:
             self.engine.message_log.add_message(
-                f"You consume the {self.parent.name}, and recover {amount_recovered} HP!",
+                f"You use the {self.parent.name}, and recover {amount_recovered} HP!",
                 color.health_recovered,
             )
             self.consume()
         else:
-            raise Impossible(f"Your health is already full.")
+            raise Impossible(f"You have no wounds to heal.")
 
 
 class SingleShotMusket(Consumable):
@@ -90,12 +90,12 @@ class SingleShotMusket(Consumable):
 
         if target:
             self.engine.message_log.add_message(
-                f"You pull the trigger: the round strikes {target.name} with a sickening clap for {self.damage} damage!"
+                f"You quickly pull the trigger: the round pierces {target.name} for {self.damage} damage!"
             )
             target.fighter.take_damage(self.damage)
             self.consume()
         else:
-            raise Impossible("There are no enemies in range.")
+            raise Impossible("You can't kill what you can't see, at least not with this.")
 
 class SingleShotBlunderbuss(Consumable):
     def __init__(self, damage: int, radius: int):
@@ -122,11 +122,11 @@ class SingleShotBlunderbuss(Consumable):
         for actor in self.engine.game_map.actors:
             if actor.distance(*target_xy) <= self.radius:
                 self.engine.message_log.add_message(
-                    f"You pull the trigger, {actor.name}'s flesh is shredded with small pellets for {self.damage} damage!"
+                    f"You pull the trigger, {actor.name} is shredded with pellets for {self.damage} damage!"
                 )
                 actor.fighter.take_damage(self.damage)
                 targets_hit = True
 
         if not targets_hit:
-            raise Impossible("There are no targets in the radius.")
+            raise Impossible("Shotguns have short range, get closer.")
         self.consume()
