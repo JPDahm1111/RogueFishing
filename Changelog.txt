@@ -207,3 +207,17 @@ v0.13, 032025i - Exploration and Progression!
 
 v0.13, 032025a - minor changes
 
+v0.13, 032725a - increasing difficulty (Based on part 12 of roguelike tutorials)
+- modified procgen.py
+	- used tuples to change entity spawns on each "floor"
+- new system makes previous spawning systems outdated
+	- removed traces of old spawning systems:
+		- gamemap.py
+		- procgen.py 
+		- setup_game.py
+- added spawining parameters to procgen.py 
+- added spawning increase, ex more of a certain thing spawns the higher you go in the caves
+- will tweak and customize these in next update, for now they're the default numbers from the tutoral.
+
+
+
