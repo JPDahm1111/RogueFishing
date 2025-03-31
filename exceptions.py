@@ -1,4 +1,3 @@
-#JPD
 #RogueFishing exceptions file
 
 #This file allows for special exceptions to be created and managed
@@ -7,7 +6,7 @@
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications---------
+#Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications by me
 
 
 

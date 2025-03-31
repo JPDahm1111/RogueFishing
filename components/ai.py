@@ -74,6 +74,7 @@ class HostileEnemy(BaseAI):
         target = self.engine.player
         dx = target.x - self.entity.x
         dy = target.y - self.entity.y
+        
         #sketchy math stuff
         distance = max(abs(dx), abs(dy))  ## Chebyshev distance.
 
@@ -134,4 +135,13 @@ class ConfusedEnemy(BaseAI):
             # Its possible the actor will just bump into the wall, wasting a turn.
             return BumpAction(self.entity, direction_x, direction_y,).perform()
 
+#placeholder ai for static entities like chests and water
+class Static(BaseAI):
+    def __init__(self, entity: Actor):
+        super().__init__(entity)
+        self.path: List[Tuple[int, int]] = []
+
+    def perform(self) -> None:
+        return
+        
 #end of line

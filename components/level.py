@@ -1,14 +1,13 @@
-#JPD
 #RogueFishing
 #Leveling system file
 
-#This file manages the exp and leveling up system
+#This file manages the exp and leveling up systems
 
 #credits:
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me (JPD)
+#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me
 
 
 
@@ -54,11 +53,11 @@ class Level(BaseComponent):
 
         self.current_xp += xp
 
-        self.engine.message_log.add_message(f"You gain {xp} experience points.")
+        self.engine.message_log.add_message(f"You learn more from the caves and gain {xp} experience points.")
 
         if self.requires_level_up:
             self.engine.message_log.add_message(
-                f"You advance to level {self.current_level + 1}!"
+                f"You reach a breakthrough in your knowledge and achieve level {self.current_level + 1}!"
             )
 
     def increase_level(self) -> None:
@@ -70,20 +69,20 @@ class Level(BaseComponent):
         self.parent.fighter.max_hp += amount
         self.parent.fighter.hp += amount
 
-        self.engine.message_log.add_message("Your health improves!")
+        self.engine.message_log.add_message("Stress builds strength: your body has taken so many beatings you grow more resilient! (+hp)")
 
         self.increase_level()
 
     def increase_power(self, amount: int = 1) -> None:
-        self.parent.fighter.power += amount
+        self.parent.fighter.base_power += amount
 
-        self.engine.message_log.add_message("You feel stronger!")
+        self.engine.message_log.add_message("You've killed so much you grow better at it. Is this really nessecary? (+dam)")
 
         self.increase_level()
 
     def increase_defense(self, amount: int = 1) -> None:
-        self.parent.fighter.defense += amount
+        self.parent.fighter.base_defense += amount
 
-        self.engine.message_log.add_message("Your movements are getting swifter!")
+        self.engine.message_log.add_message("Your skin callouses and hardens, enemy blows hurt you less! (+def)")
 
         self.increase_level()

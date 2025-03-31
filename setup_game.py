@@ -1,6 +1,4 @@
-#JPD
 #game setup file 
-#ALL comments by me
 
 #This file acts as a game initialization/setup screen. It basically is the main menu.
 
@@ -8,9 +6,10 @@
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me (JPD)
+#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me
 
 #imports
+
 """Handle the loading and initialization of game sessions."""
 from __future__ import annotations
 
@@ -19,15 +18,13 @@ import lzma
 import pickle
 import traceback
 from typing import Optional
-
 import tcod
-
 import color
 from engine import Engine
 import entity_factories
 from game_map import GameWorld
 import input_handlers
-
+import random
 
 
 # Load the background image and remove the alpha channel.
@@ -64,6 +61,18 @@ def new_game() -> Engine:
     engine.message_log.add_message(
         "You regain consiousness in the caves. Again. Maybe this time you'll reach the surface.", color.welcome_text
     )
+#autoequip weapons
+    Shortsword = copy.deepcopy(entity_factories.Shortsword)
+    Gambeson = copy.deepcopy(entity_factories.Gambeson)
+
+    Shortsword.parent = player.inventory
+    Gambeson.parent = player.inventory
+
+    player.inventory.items.append(Shortsword)
+    player.equipment.toggle_equip(Shortsword, add_message=False)
+
+    player.inventory.items.append(Gambeson)
+    player.equipment.toggle_equip(Gambeson, add_message=False)
     return engine
 
 #load function
@@ -71,7 +80,7 @@ def load_game(filename: str) -> Engine:
     """Load an Engine instance from a file."""
     with open(filename, "rb") as f:
         engine = pickle.loads(lzma.decompress(f.read()))
-    assert isinstance(engine, Engine)
+        assert isinstance(engine, Engine)
     return engine
 
 
@@ -91,16 +100,18 @@ class MainMenu(input_handlers.BaseEventHandler):
             alignment=tcod.CENTER,
         )
 
-#SPLASH TEXTTTT
-#update to make this random in the future
+#entirely by me vvv
+        # Display random splash text
         console.print(
             console.width // 2,
             console.height - 2,
-            "Fishtastic",
+            #calls splash text func
+            st_procgen(),  
             fg=color.menu_title,
             alignment=tcod.CENTER,
         )
-
+#entirely by me ^^^
+            
 #These are options to start the game/ quit it!
         menu_width = 24
         for i, text in enumerate(
@@ -133,3 +144,84 @@ class MainMenu(input_handlers.BaseEventHandler):
             return input_handlers.MainGameEventHandler(new_game())
 
         return None
+    
+#entirely by me vvv
+#splash text list
+splashtexts = [
+    "Fishtastic",
+    "Fish not included!",
+    "Infinite!?",
+    "Replay value!",
+    "Time has little to do with infinity and jelly doughnuts!",
+    "Also try...I haven't really made anything else!",
+    "The peak of roguelikes!",
+    "Fishing? Not yet!",
+    "0.35 is Water!",
+    "Don't cave straight down!",
+    "Reach the surface!",
+    "If you make any input, I'll change!",
+    "Made by me... for the most part!",
+    "I am Steve!",
+    "Deep combat!",
+    "Mouse not included!",
+    "Hardcore mode? We're in UltraHardcore mode!",
+    "I yearn for the depths!",
+    "Breathe out before going through tight squeezes!",
+    "Press > to ascend!",
+    "Tutorials are for the weak (I'm not lazy I swear)",
+    "proper, grammer!",
+    "No language support!",
+    "Edgy!",
+    "AP Computer Science Principals!",
+    "Shoutout to my teacher!",
+    "At least one gameplay mechanic!",
+    "No mining OR crafting!",
+    '"Shift" will not make you sprint!',
+    "The impala is NOT tame!",
+    "Lots of foes!",
+    "Web fishing (but not on the web)!",
+    "Gaben was not here!",
+    "Wake up samurai, we've got a fish to catch!",
+    "Better than Skyrim!",
+    "The rocks were tricked into thinking!",
+    "Philisophically deep",
+    "Do NOT eat Plato!",
+    "I think therefore I fish!",
+    "The west has risen! Billions must fish!",
+    "Unfinished? More like full of potential!",
+    "Back in monochrome!",
+    "Who needs fancy graphics when you have font?!",
+    "The fewer the merrier!",
+    "Fear the walking fish!",
+    "Fishing Time!",
+    "The fishing game with NO fishing Mechanics!",
+    "Tilde does not open console!",
+    "I'll lock in 2026!",
+    "This is a list!",
+    "Pure organic Python!",
+    "Wholesome!",
+    "We need to Fish!",
+    "Have fun!",
+    ":D",
+    "If I can do this, you can too!",
+    "What doth life?",
+    "I like trains!",
+    "Your adventure begins here (until you ragequit)!",
+    "Now with saving!",
+    "Contains no caffiene!",
+    "Diet!",
+    "It's a bittersweet roguelike this game!",
+    "Do not consume!",
+    "A set tone, what's that?!",
+    "Fishing. Fishing never changes!",
+    "Now with Mac support!",
+    "Don't mind the bugs!",
+    "Don't worry, be happy!",
+    "Everything will be alright if you let it go!",
+    "I see a red door and I want it painted in RGB!",
+
+]
+def st_procgen():
+    return random.choice(splashtexts)
+#entirely by me ^^^
+

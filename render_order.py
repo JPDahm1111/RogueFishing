@@ -1,7 +1,4 @@
-#JPD
 #RogueFishing entity rendering order file
-
-
 
 #This file controls order in which various entities are rendered 
 
@@ -9,7 +6,7 @@
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications---------
+#Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications by me
 
 #imports
 from enum import auto, Enum

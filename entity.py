@@ -1,6 +1,4 @@
-#JPD
 #entity controller
-#ALL comments by me
 
 #this file controls ALL entities that will be used in RogueFishing
 
@@ -8,7 +6,7 @@
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me (JPD)
+#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me
 
 #imports
 from __future__ import annotations
@@ -21,14 +19,16 @@ from render_order import RenderOrder
 if TYPE_CHECKING:
     from components.ai import BaseAI
     from components.consumable import Consumable
+    from components.equipment import Equipment
+    from components.equippable import Equippable
     from components.fighter import Fighter
     from components.inventory import Inventory
     from components.level import Level
     from game_map import GameMap
 
+#basic entity template
 T = TypeVar("T", bound="Entity")
 
-#basic entity template
 class Entity:
     """
     A generic object to represent players, enemies, items, etc.
@@ -107,6 +107,7 @@ class Actor(Entity):
         color: Tuple[int, int, int] = (255, 255, 255),
         name: str = "<Unnamed>",
         ai_cls: Type[BaseAI],
+        equipment: Equipment,
         fighter: Fighter,
         inventory: Inventory,
         level: Level,
@@ -122,10 +123,13 @@ class Actor(Entity):
         )
 
         self.ai: Optional[BaseAI] = ai_cls(self)
-
+        #import equippables
+        self.equipment: Equipment = equipment
+        self.equipment.parent = self
+        #designate as player
         self.fighter = fighter
         self.fighter.parent = self
-
+        
         self.inventory = inventory
         self.inventory.parent = self
 
@@ -146,7 +150,8 @@ class Item(Entity):
         char: str = "?",
         color: Tuple[int, int, int] = (255, 255, 255),
         name: str = "<Unnamed>",
-        consumable: Consumable,
+        consumable: Optional[Consumable] = None,
+        equippable: Optional[Equippable] = None,
     ):
         super().__init__(
             x=x,
@@ -159,4 +164,34 @@ class Item(Entity):
         )
 
         self.consumable = consumable
-        self.consumable.parent = self
+        if self.consumable:
+            self.consumable.parent = self
+
+        self.equippable = equippable
+
+        if self.equippable:
+            self.equippable.parent = self
+
+class Static(Entity):
+    def __init__(
+        self,
+        *,
+        x: int = 0,
+        y: int = 0,
+        char: str = "?",
+        color: Tuple[int, int, int] = (255, 255, 255),
+        name: str = "<Unnamed>",
+    ):
+        super().__init__(
+            x=x,
+            y=y,
+            char=char,
+            color=color,
+            name=name,
+            blocks_movement=False,
+            render_order=RenderOrder.ITEM,
+        )
+
+        
+
+

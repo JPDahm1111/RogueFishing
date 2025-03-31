@@ -1,6 +1,6 @@
 RogueFishing Credits:
 
-Game made by JPD using original code as well as code snippets from:
+Game made by me using original code as well as code snippets from:
 
 Python-TCOD:
 Copyright (c) 2009-2023, Kyle Benesch and the python-tcod contributors.
@@ -36,3 +36,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Roguelike Tutorials:
 Most of the framework for RogueFishing was created using this tutorial, including code taken directly from it. The website for Roguelike tutorials can be found at https://rogueliketutorials.com. Roguelike tutorials was created by Tyler Standridge and is licensed under Creative Commons Legal Code CC0 1.0 Universal
 
+Home screen "New Piskel.png" by me
+
+Font sheet "dejavu10x10_gs_tc.png" is made by the python-tcod developers with many changes by me. "dejavu10x10_gs_tc.png" is Liscensed under BSD 2-Clause License, as is Python-TCOD.

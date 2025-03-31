@@ -1,4 +1,3 @@
-#JPD
 #RogueFishing actions file
 
 
@@ -9,7 +8,7 @@
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications---------
+#Used code by "Roguelike Tutorials", website found at rogueliketutorials.com with slight addendums/modifications by me
 
 #allows actions to take some weight from engine
 
@@ -89,11 +88,23 @@ class ItemAction(Action):
 
     def perform(self) -> None:
         """Invoke the items ability, this action will be given to provide context."""
-        self.item.consumable.activate(self)
+        if self.item.consumable:
+            self.item.consumable.activate(self)
 
 class DropItem(ItemAction):
     def perform(self) -> None:
+        if self.entity.equipment.item_is_equipped(self.item):
+            self.entity.equipment.toggle_equip(self.item)
         self.entity.inventory.drop(self.item)
+        
+class EquipAction(Action):
+    def __init__(self, entity: Actor, item: Item):
+        super().__init__(entity)
+
+        self.item = item
+
+    def perform(self) -> None:
+        self.entity.equipment.toggle_equip(self.item)
 
 class WaitAction(Action):
     def perform(self) -> None:

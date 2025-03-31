@@ -1,44 +1,50 @@
-#JPD
-#additional entity controller
-#ALL comments by me
 
-#This file managies entities, specifically when they are cloned and transferred to game_map.py, additionally it allows the various entities to be defined!
+#additional entity controller
+
+
+#This file manages entities, specifically when they are cloned and transferred to game_map.py, additionally it allows the various entities to be defined!
 
 #credits:
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me (JPD)
+#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me 
 
 #imports
 
 from components.ai import HostileEnemy
-from components import consumable
+from components.ai import Static
+from components import consumable, equippable
+from components.equipment import Equipment
 from components.fighter import Fighter
 from components.inventory import Inventory
 from components.level import Level
-from entity import Actor, Item
+from entity import Actor, Item, Static
 
 #These options allow entities to be created and customized!
 #entitiy visual appearance and gameplay attributes customizable! yipeeee!
 
+#Player
 player = Actor(
     char="@",
     color=(255, 255, 255),
     name="Player",
     #because player doesn't use ai this is useless vvv
     ai_cls=HostileEnemy,
-    fighter=Fighter(hp=30, defense=2, power=5),
+    equipment=Equipment(),
+    fighter=Fighter(hp=30, base_defense=1, base_power=2),
     inventory=Inventory(capacity=26),
     level=Level(level_up_base=200),
 )
 
+#NPC - Enemy
 orc = Actor(
     char="}",
     color=(63, 127, 63),
     name="Feral Human",
     ai_cls=HostileEnemy,
-    fighter=Fighter(hp=10, defense=0, power=3),
+    equipment=Equipment(),
+    fighter=Fighter(hp=10, base_defense=0, base_power=3),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=35),
 )
@@ -47,11 +53,13 @@ troll = Actor(
     color=(0, 127, 0),
     name="Cave Horror",
     ai_cls=HostileEnemy,
-    fighter=Fighter(hp=16, defense=1, power=4),
+    equipment=Equipment(),
+    fighter=Fighter(hp=16, base_defense=1, base_power=4),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=100),
 )
 
+#consumable - health
 health_potion = Item(
     char="|",
     color=(255, 255, 255),
@@ -59,6 +67,7 @@ health_potion = Item(
     consumable=consumable.HealingConsumable(amount=4),
 )
 
+#consumable - weapon
 Single_Shot_Musket = Item(
     char="↔",
     color=(165, 42, 42),
@@ -71,4 +80,29 @@ Single_Shot_Blunderbuss = Item(
     color=(255, 0, 0),
     name="Single Shot Blunderbuss",
     consumable=consumable.SingleShotBlunderbuss(damage=10, radius=3),
+)
+
+#equippables
+Shortsword = Item(
+    char="◄", color=(184, 115, 51), name="Shortsword", equippable=equippable.Shortsword()
+)
+
+Cleaver = Item(char="▼", color=(0, 191, 255), name="Cleaver", equippable=equippable.Cleaver())
+
+Gambeson = Item(
+    char="►",
+    color=(128, 128, 128),
+    name="Gambeson",
+    equippable=equippable.Gambeson(),
+)
+
+FlakVest = Item(
+    char="[", color=(139, 69, 19), name="Flak Vest", equippable=equippable.FlakVest()
+)
+
+#objects
+water = Static(
+    char="%",
+    color=(0, 0, 255),
+    name="Water",
 )

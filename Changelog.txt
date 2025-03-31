@@ -1,5 +1,5 @@
 RogueFishing
-Changelog by JPD
+Changelog by me
 —————————————————————————————————————————————
 Build naming convention:
 (Month)(Day)(Year)(Build designation)
@@ -218,6 +218,33 @@ v0.13, 032725a - increasing difficulty (Based on part 12 of roguelike tutorials)
 - added spawining parameters to procgen.py 
 - added spawning increase, ex more of a certain thing spawns the higher you go in the caves
 - will tweak and customize these in next update, for now they're the default numbers from the tutoral.
+
+v0.13, 032825 - equipment framework
+- added basic armor framework
+- created equipment_types.py to manage new equipment
+- created equippable.py to manage gear
+- modified entity.py and actions.py to accomidate new equippables
+- equippable is now used with equippable for entity_factories.py
+- created equipment.py
+	- handles entitiy equipment and all equipment details
+- modified entity.py to support equipment.py
+- modified fighter.py to accomidate equippables
+- defense and attack are calculated differently
+- updated level.py to use new args
+- modified procgen.py to spawn new equipment
+- updated actions.py to allow equipping/unequipping
+- actual equipment is in equipable.py
+- updated sprites
+- low tier equipment is automatically granted on spawn
+- graphics update!
+- New Static entity type
+	- this is the framework for water and other immovable things like chests, doors etc!
+- There's water now!
+- Updated random system
+	- used for splash texts in setup_game.py
+	- this is my main student created function!
+- Updated credits.txt
+- Updated credits/opening in all files to be compliant. 
 
 
 

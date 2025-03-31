@@ -1,4 +1,3 @@
-#JPD
 #RogueFishing
 #Procedural Generation File
 
@@ -41,14 +40,16 @@ max_monsters_by_floor = [
     (6, 5),
 ]
 
+#the first number is the level the item spawns on!
 item_chances: Dict[int, List[Tuple[Entity, int]]] = {
     0: [(entity_factories.health_potion, 35)],
-    4: [(entity_factories.Single_Shot_Musket, 25)],
+    2: [(entity_factories.Gambeson, 20)],
+    4: [(entity_factories.Single_Shot_Musket, 25), (entity_factories.Shortsword, 5)],
     6: [(entity_factories.Single_Shot_Blunderbuss, 25)],
 }
 
 enemy_chances: Dict[int, List[Tuple[Entity, int]]] = {
-    0: [(entity_factories.orc, 80)],
+    0: [(entity_factories.orc, 80), (entity_factories.water, 90)],
     3: [(entity_factories.troll, 15)],
     5: [(entity_factories.troll, 30)],
     7: [(entity_factories.troll, 60)],

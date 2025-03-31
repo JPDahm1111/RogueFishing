@@ -1,18 +1,15 @@
-#JPD
 #RogueFishing
-#Leveling system file
+#leveling file
 
-#This file manages the exp and leveling up system
+#This file is responsible for managing leveling and its effects on the player
 
 #credits:
 #general TCOD reference: https://python-tcod.readthedocs.io/en/latest/index.html
 #roguelike tutorial: rogueliketutorials.com
 
-#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me (JPD)
+#Used code from "Roguelike Tutorials" created by Tyler Standridge, website found at rogueliketutorials.com with addendums/modifications by me 
 
-#this system is NOT limited just to the player, it can apply to entities too!
 
-#imports
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -66,7 +63,7 @@ class Level(BaseComponent):
 
         self.current_level += 1
 
-    def increase_max_hp(self, amount: int = 20) -> None:
+    def increase_max_hp(self, amount: int = 3) -> None:
         self.parent.fighter.max_hp += amount
         self.parent.fighter.hp += amount
 
