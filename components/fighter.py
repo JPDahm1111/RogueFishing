@@ -185,6 +185,12 @@ class Fighter(BaseComponent):
         self.hp = new_hp_value
 
         return amount_recovered
-
+    
+#goofy new damage formula
     def take_damage(self, amount: int) -> None:
-        self.hp -= amount
+    # Calculate the effective damage by subtracting defense from the incoming damage
+        effective_damage = max(0, amount - self.defense)  
+
+    # Subtract the effective damage from the player's health
+        self.hp -= effective_damage
+

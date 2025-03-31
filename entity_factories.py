@@ -44,7 +44,7 @@ orc = Actor(
     name="Feral Human",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
-    fighter=Fighter(hp=10, base_defense=0, base_power=3),
+    fighter=Fighter(hp=10, base_defense=0, base_power=5),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=35),
 )
@@ -54,7 +54,7 @@ troll = Actor(
     name="Cave Horror",
     ai_cls=HostileEnemy,
     equipment=Equipment(),
-    fighter=Fighter(hp=16, base_defense=1, base_power=4),
+    fighter=Fighter(hp=16, base_defense=1, base_power=8),
     inventory=Inventory(capacity=0),
     level=Level(xp_given=100),
 )
@@ -84,17 +84,40 @@ Single_Shot_Blunderbuss = Item(
 
 #equippables
 Shortsword = Item(
-    char="◄", color=(184, 115, 51), name="Shortsword", equippable=equippable.Shortsword()
+    char="◄", color=(184, 115, 51), name="Training Shortsword", equippable=equippable.Shortsword()
 )
 
-Cleaver = Item(char="▼", color=(0, 191, 255), name="Cleaver", equippable=equippable.Cleaver())
+ShortswordC = Item(
+    char="◄", color=(255, 15, 0), name="Copper Shortsword", equippable=equippable.ShortswordC()
+)
+
+ShortswordB = Item(
+    char="◄", color=(255, 15, 0), name="Bronze Shortsword", equippable=equippable.ShortswordB()
+)
+
+ShortswordI = Item(
+    char="◄", color=(86, 86, 86), name="Iron Shortsword", equippable=equippable.ShortswordI()
+)
+
+ShortswordS = Item(
+    char="◄", color=(211, 211, 211), name="Steel Shortsword", equippable=equippable.ShortswordS()
+)
+
+ShortswordDS = Item(
+    char="◄", color=(211, 211, 211), name="Damascus Steel Shortsword", equippable=equippable.ShortswordDS()
+)
+
+Cleaver = Item(char="▼", color=(0, 191, 255), name=" Butcher's Cleaver", equippable=equippable.Cleaver()
+)
 
 Gambeson = Item(
     char="►",
     color=(128, 128, 128),
-    name="Gambeson",
+    name=" Basic Gambeson",
     equippable=equippable.Gambeson(),
 )
+
+
 
 FlakVest = Item(
     char="[", color=(139, 69, 19), name="Flak Vest", equippable=equippable.FlakVest()

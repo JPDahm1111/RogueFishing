@@ -246,5 +246,10 @@ v0.13, 032825 - equipment framework
 - Updated credits.txt
 - Updated credits/opening in all files to be compliant. 
 
+v0.14 033125i - Damage changes and weapons!
+- modified damage formula in fighter.py to make defense less op
+- added new (unused weapons)
+- slightly modified spawns in procgen.py
+
 
 

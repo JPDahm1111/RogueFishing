@@ -38,9 +38,37 @@ class Equippable(BaseComponent):
         self.defense_bonus = defense_bonus
 
 #manages equipment
+
+#shortswords:
 class Shortsword(Equippable):
     def __init__(self) -> None:
-        super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=2)
+        super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=2, defense_bonus=1)
+
+class ShortswordC(Equippable):
+    def __init__(self) -> None:
+        super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=3)
+
+class ShortswordB(Equippable):
+    def __init__(self) -> None:
+        super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=3.5)
+
+class ShortswordI(Equippable):
+    def __init__(self) -> None:
+        super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4)
+
+class ShortswordS(Equippable):
+    def __init__(self) -> None:
+        super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=4.5)
+        
+class ShortswordDS(Equippable):
+    def __init__(self) -> None:
+        super().__init__(equipment_type=EquipmentType.WEAPON, power_bonus=6.2)
+
+
+
+
+
+
 
 
 class Cleaver(Equippable):

@@ -30,14 +30,17 @@ if TYPE_CHECKING:
 
 #these control entities on each floor  
 max_items_by_floor = [
-    (1, 1),
-    (4, 2),
+    (1, 4),
+    (4, 5),
 ]
 
 max_monsters_by_floor = [
     (1, 2),
-    (4, 3),
-    (6, 5),
+    (4, 4),
+    (6, 7),
+    (9, 11),
+    (15, 16),
+    (20, 19),
 ]
 
 #the first number is the level the item spawns on!

@@ -29,6 +29,7 @@ if TYPE_CHECKING:
 #basic entity template
 T = TypeVar("T", bound="Entity")
 
+#basic entity
 class Entity:
     """
     A generic object to represent players, enemies, items, etc.
@@ -97,6 +98,7 @@ class Entity:
         self.x += dx
         self.y += dy
 
+#moving entity
 class Actor(Entity):
     def __init__(
         self,
@@ -141,6 +143,7 @@ class Actor(Entity):
         """Returns True as long as this actor can perform actions."""
         return bool(self.ai)
 
+#item
 class Item(Entity):
     def __init__(
         self,
@@ -172,6 +175,7 @@ class Item(Entity):
         if self.equippable:
             self.equippable.parent = self
 
+#static type
 class Static(Entity):
     def __init__(
         self,
